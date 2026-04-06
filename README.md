@@ -77,6 +77,7 @@ CANable2などのデバイスを使用する場合、適宜CANインターフェ
 ``` bash
 sudo ip link set can0 type can bitrate 1000000
 sudo ip link set can0 up
+sudo ip link set can0 txqueuelen 1000
 ```
 
 参考: [CANable 2.0で高速can通信 with ROS 2](https://qiita.com/kzs321kzs/items/463f1b1ce21877e8b4b6)
@@ -122,6 +123,14 @@ ros2 run ble_controller ble_controller_node
 ```
 
 ### ジョイスティック → Twist
+
+1. コントローラー → joy
+
+```bash
+ros2 run joy joy_node
+```
+
+2. joy → Twist
 
 ```bash
 ros2 run joy_controller joy_to_twist
